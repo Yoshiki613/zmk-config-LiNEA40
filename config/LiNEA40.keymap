@@ -240,10 +240,10 @@
 
         naginata_layer {
             bindings = <
-&ng Q         &ng W         &ng E      &ng R           &ng T                                  &ng Y     &ng U            &ng O      &ng I              &ng P
+&ng Q         &ng W         &ng E      &ng R           &ng T                                  &ng Y     &ng U            &ng I      &ng O              &ng P
 &ng A         &ng S         &ng D      &ng F           &ng G                                  &ng H     &ng J            &ng K      &ng L              &ng SEMI
 &ng Z         &ng X         &ng C      &ng V           &ng B                                  &ng N     &ng M            &ng COMMA  &ng DOT           &ng SLASH
-&tog 0        &trans        &trans     &trans          &ng SPACE  &ng ENTER    &kp BACKSPACE  &ng SPACE                  &trans     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&tog 0        &trans        &trans     &trans          &ng SPACE  &ng ENTER    &kp BACKSPACE  &ng SPACE                  &trans     &kp LEFT_ARROW     &kp RIGHT_ARROW
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
