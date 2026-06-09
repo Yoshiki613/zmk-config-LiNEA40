@@ -33,16 +33,20 @@
 │  Z  │  X  │  C  │  V  │  B  │     │  N  │  M  │  ,  │  .  │  /  │
 └─────┴─────┴─────┴─────┴─────┘     └─────┴─────┴─────┴─────┴─────┘
 ┌─────┬─────┬─────┬─────┬─────┬─────┐ ┌─────┬─────┐ ┌─────┬─────┬─────┐
-│⇄L0  │     │     │     │Space│Enter│ │Bspc │Space│     │  ←  │  →  │
+│⇄L0  │ Cmd │     │     │Space│▲Sht │ │▲Num │Space│▲Fn  │  ←  │  →  │
+│     │     │     │     │     │ Tab │ │Bspc │     │     │     │     │
 └─────┴─────┴─────┴─────┴─────┴─────┘ └─────┴─────┘ └─────┴─────┴─────┘
 ```
 
 | 親指 | L7 |
 |------|-----|
 | 左下（30） | L0へ戻る |
-| 34・35 | ngSpace / ngEnter |
-| 36 | Backspace |
+| 31 | Command |
+| 34 | ngSpace |
+| 35 | Tab / L7用 ShortCut（L9） |
+| 36 | Backspace / L7用 Number（L8） |
 | 37 | ngSpace |
+| 38 | L7用 Function（L10） |
 | 39・40 | ← / →（`&kp`） |
 
 **V + M 同時押し** → Enter（`zmk-naginata-v17` 内蔵）
@@ -61,6 +65,9 @@
 | 5 | Function | `▲Fn Enter` |
 | 6 | WIRELESS | `●BT` |
 | 7 | NAGINATA | `⇄薙刀` / H+J |
+| 8 | Number_NG | L7用 Number 複製 |
+| 9 | ShortCut_NG | L7用 ShortCut 複製 |
+| 10 | Function_NG | L7用 Function 複製 |
 
 ---
 

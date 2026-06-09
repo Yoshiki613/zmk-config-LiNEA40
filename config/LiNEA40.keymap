@@ -245,10 +245,47 @@
 &ng Q   &ng W         &ng E   &ng R   &ng T                                    &ng Y      &ng U  &ng I      &ng O           &ng P
 &ng A   &ng S         &ng D   &ng F   &ng G                                    &ng H      &ng J  &ng K      &ng L           &ng SEMI
 &ng Z   &ng X         &ng C   &ng V   &ng B                                    &ng N      &ng M  &ng COMMA  &ng DOT         &ng SLASH
-&tog 0  &kp LEFT_WIN  &trans  &trans  &ng SPACE  &lt 4 TAB    &lt 3 BACKSPACE  &ng SPACE         &mo 5      &kp LEFT_ARROW  &kp RIGHT_ARROW
+&to 0   &kp LEFT_WIN  &trans  &trans  &ng SPACE  &lt 9 TAB    &lt 8 BACKSPACE  &ng SPACE         &mo 10     &kp LEFT_ARROW  &kp RIGHT_ARROW
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //8 — Number copy for NAGINATA
+
+        Number_NG {
+            bindings = <
+&kp MINUS  &kp EQUAL  &kp BSLH  &kp COLON  &kp SEMI                                       &kp DQT          &kp APOS  &trans  &kp LBKT  &kp RBKT
+&kp N1     &kp N2     &kp N3    &kp N4     &kp N5                                         &kp N6           &kp N7    &kp N8  &kp N9    &kp N0
+&trans     &trans     &trans    &trans     &trans                                         &trans           &trans    &trans  &trans    &trans
+&trans     &trans     &trans    &trans     &kp LEFT_SHIFT  &kp LEFT_WIN    &kp RIGHT_WIN  &kp RIGHT_SHIFT            &trans  &trans    &trans
+            >;
+        };
+
+        //9 — ShortCut copy for NAGINATA
+
+        ShortCut_NG {
+            bindings = <
+&kp LG(Q)  &kp LG(W)  &kp LG(E)  &kp LG(A)  &kp LG(S)                    &trans  &trans          &kp UP_ARROW    &trans           &trans
+&kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans                       &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&trans     &trans     &trans     &trans     &trans                       &trans  &trans          &trans          &trans           &trans
+&trans     &trans     &trans     &trans     &trans     &trans    &trans  &trans                  &trans          &trans           &trans
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //10 — Function copy for NAGINATA
+
+        Function_NG {
+            bindings = <
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5                     &trans  &kp F12  &kp LG(DOT)    &kp LS(LG(NUMBER_3))  &kp LS(LG(N5))
+&kp F6  &kp F7  &kp F8  &kp F9  &kp F10                    &trans  &kp F11  &kp LG(MINUS)  &kp LS(LG(NUMBER_4))  &kp LA(NUMBER_4)
+&trans  &trans  &trans  &trans  &trans                     &trans  &trans   &trans         &trans                &trans
+&trans  &trans  &trans  &trans  &trans   &trans    &trans  &trans           &trans         &trans                &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
     };
 };
