@@ -59,7 +59,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,
+            //スクロール方向を逆転,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -69,9 +69,7 @@
         ng_on: ng_on {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_tap>,
-                <&kp LANGUAGE_1 &kp INTERNATIONAL_4 &to NAGINATA>;
+            bindings = <&macro_tap>, <&kp LANGUAGE_1 &kp INTERNATIONAL_4 &to 7>;
         };
 
         ng_off: ng_off {
@@ -95,7 +93,7 @@
             timeout-ms = <300>;
             key-positions = <13 14>;
             bindings = <&ng_off>;
-            layers = <0 NAGINATA>;
+            layers = <0 7>;
         };
 
         ZenkakuHankaku {
@@ -155,16 +153,14 @@
 
         default_layer {
             bindings = <
-&kp L          &kp W         &kp K      &kp R           &kp P                                  &kp ESC   &kp U            &kp O      &kp Y              &kp MINUS
-&kp H          &kp S         &kp T      &kp N           &kp M                                  &kp BSPC  &kp A            &kp E      &kp I              &kp COMMA
-&kp LEFT_WIN   &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &kp SPACE                              &trans    &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT      &kp RIGHT_WIN
-&tog NAGINATA  &trans        &trans     &kp INS         &lt 3 TAB  &lt 4 SPACE    &lt 5 ENTER  &mo 2                      &mo 6      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&kp L         &kp W         &kp K      &kp R           &kp P                                  &kp ESC   &kp U            &kp O      &kp Y              &kp MINUS
+&kp H         &kp S         &kp T      &kp N           &kp M                                  &kp BSPC  &kp A            &kp E      &kp I              &kp COMMA
+&kp LEFT_WIN  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &kp SPACE                              &trans    &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT      &kp RIGHT_WIN
+&tog 7        &trans        &trans     &kp INS         &lt 3 TAB  &lt 4 SPACE    &lt 5 ENTER  &mo 2                      &mo 6      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
-
-        //1
 
         MOUSE {
             bindings = <
@@ -174,8 +170,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &trans    &trans  &trans
             >;
         };
-
-        //2
 
         Layer2 {
             bindings = <
@@ -188,8 +182,6 @@
             sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
         };
 
-        //3
-
         Number {
             bindings = <
 &kp MINUS  &kp EQUAL  &kp BSLH  &kp COLON  &kp SEMI                                       &kp DQT          &kp APOS  &trans  &kp LBKT  &kp RBKT
@@ -198,8 +190,6 @@
 &trans     &trans     &trans    &trans     &kp LEFT_SHIFT  &kp LEFT_WIN    &kp RIGHT_WIN  &kp RIGHT_SHIFT            &trans  &trans    &trans
             >;
         };
-
-        //4
 
         ShortCut {
             bindings = <
@@ -212,8 +202,6 @@
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
 
-        //5
-
         Function {
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                     &trans  &kp F12  &kp LG(DOT)    &kp LS(LG(NUMBER_3))  &kp LS(LG(N5))
@@ -224,8 +212,6 @@
 
             sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
         };
-
-        //6
 
         WIRELESS {
             bindings = <
@@ -238,20 +224,25 @@
             sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
 
-        //7 — 薙刀式（QWERTY物理位置。親指は調整済みレイアウト）
-
         naginata_layer {
             bindings = <
-&ng Q   &ng W         &ng E   &ng R   &ng T                                    &ng Y      &ng U  &ng I      &ng O           &ng P
-&ng A   &ng S         &ng D   &ng F   &ng G                                    &ng H      &ng J  &ng K      &ng L           &ng SEMI
-&ng Z   &ng X         &ng C   &ng V   &ng B                                    &ng N      &ng M  &ng COMMA  &ng DOT         &ng SLASH
-&to 0   &kp LEFT_WIN  &trans  &trans  &ng SPACE  &lt 9 TAB    &lt 8 BACKSPACE  &ng SPACE         &mo 10     &kp LEFT_ARROW  &kp RIGHT_ARROW
+&ng Q  &ng W         &ng E  &ng R   &ng T                                     &ng Y      &ng U  &ng I      &ng O           &ng P
+&ng A  &ng S         &ng D  &ng F   &ng G                                     &ng H      &ng J  &ng K      &ng L           &ng SEMI
+&ng Z  &ng X         &ng C  &ng V   &ng B                                     &ng N      &ng M  &ng COMMA  &ng DOT         &ng SLASH
+&to 0  &kp LEFT_WIN  &to 8  &trans  &ng SPACE  &lt 10 TAB    &lt 9 BACKSPACE  &ng SPACE         &mo 11     &kp LEFT_ARROW  &kp RIGHT_ARROW
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
 
-        //8 — Number copy for NAGINATA
+        graphite {
+            bindings = <
+&kp B   &kp L   &kp D  &kp W   &kp Z                                       &kp APOS        &kp F  &kp O      &kp U    &kp J
+&kp N   &kp R   &kp T  &kp S   &kp G                                       &kp Y           &kp H  &kp A      &kp E    &kp I
+&kp Q   &kp X   &kp M  &kp C   &kp V                                       &kp K           &kp P  &kp COMMA  &kp DOT  &kp FSLH
+&trans  &trans  &to 7  &trans  &kp LEFT_SHIFT  &kp BACKSPACE    &kp ENTER  &kp LEFT_SHIFT         &trans     &trans   &trans
+            >;
+        };
 
         Number_NG {
             bindings = <
@@ -261,8 +252,6 @@
 &trans     &trans     &trans    &trans     &kp LEFT_SHIFT  &kp LEFT_WIN    &kp RIGHT_WIN  &kp RIGHT_SHIFT            &trans  &trans    &trans
             >;
         };
-
-        //9 — ShortCut copy for NAGINATA
 
         ShortCut_NG {
             bindings = <
@@ -274,8 +263,6 @@
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
-
-        //10 — Function copy for NAGINATA
 
         Function_NG {
             bindings = <
