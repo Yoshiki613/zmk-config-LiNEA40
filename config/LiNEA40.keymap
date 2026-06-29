@@ -62,7 +62,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,,,
+            //スクロール方向を逆転,,,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -330,10 +330,10 @@
 
         seoto_layer {
             bindings = <
-&kp F   &kp Z         &kp H   &kp P   &kp LEFT_ARROW                           &kp RIGHT_ARROW  &seoto_yo &kp O       &kp W          &seoto_ya
-&kp D   &kp S         &kp N   &kp T   &kp G                                    &kp L            &kp A     &kp I      &kp U         &kp E
-&kp B   &kp R         &kp M   &seoto_k &kp K                                   &kp Y            &kp COMMA &seoto_yu  &kp DOT       &kp V
-&to 0   &kp LEFT_WIN  &trans  &trans  &lt SEOTO_SHIFT SPACE  &lt 10 TAB   &kp ENTER        &lt SEOTO_SHIFT SPACE        &mo 11     &kp LEFT_ARROW  &kp RIGHT_ARROW
+&kp F  &kp Z         &kp H   &kp P     &kp LEFT_ARROW                                  &kp RIGHT_ARROW        &seoto_yo  &kp O      &kp W             &seoto_ya
+&kp D  &kp S         &kp N   &kp T     &kp G                                           &kp L                  &kp A      &kp I      &kp U             &kp E
+&kp B  &kp R         &kp M   &seoto_k  &kp K                                           &kp Y                  &kp COMMA  &seoto_yu  &kp DOT           &kp V
+&to 0  &kp LEFT_WIN  &trans  &trans    &mo 15          &lt 16 TAB    &lt 17 LG(ENTER)  &lt SEOTO_SHIFT SPACE             &mo 11     &kp LS(NUMBER_1)  &kp LS(SLASH)
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -343,10 +343,10 @@
 
         seoto_shift_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                      &seoto_lang1  &seoto_lang2  &trans     &kp LS(GRAVE)  &trans
-&trans  &trans  &trans  &trans  &trans                                      &kp APOS &kp BSPC &seoto_nn &kp MINUS      &seoto_xtu
-&trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans     &trans         &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans                   &trans          &trans     &trans         &trans
+&trans  &trans  &trans  &trans  &trans                    &seoto_lang1  &seoto_lang2  &trans     &kp LS(GRAVE)  &trans
+&trans  &trans  &trans  &trans  &trans                    &kp APOS      &kp BSPC      &seoto_nn  &kp MINUS      &seoto_xtu
+&trans  &trans  &trans  &trans  &trans                    &trans        &trans        &trans     &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                      &trans     &trans         &trans
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -356,10 +356,10 @@
 
         seoto_en_layer {
             bindings = <
-&kp F   &kp Z         &kp H   &kp P  &kp LEFT_ARROW                           &kp RIGHT_ARROW  &kp Q     &kp O       &kp W      &kp X
-&kp D   &kp S         &kp N   &kp T  &kp G                                    &kp L            &kp A     &kp I       &kp U      &kp E
-&kp B   &kp R         &kp M   &kp C  &kp K                                    &kp Y            &kp COMMA &kp J       &kp DOT    &kp V
-&to 0   &kp LEFT_WIN  &trans  &trans &lt SEOTO_SHIFT SPACE  &lt 10 TAB   &kp ENTER        &lt SEOTO_SHIFT SPACE        &mo 11     &kp LEFT_ARROW  &kp RIGHT_ARROW
+&kp F  &kp Z         &kp H   &kp P   &kp LEFT_ARROW                              &kp RIGHT_ARROW        &kp Q      &kp O   &kp W             &kp X
+&kp D  &kp S         &kp N   &kp T   &kp G                                       &kp L                  &kp A      &kp I   &kp U             &kp E
+&kp B  &kp R         &kp M   &kp C   &kp K                                       &kp Y                  &kp COMMA  &kp J   &kp DOT           &kp V
+&to 0  &kp LEFT_WIN  &trans  &trans  &mo 15          &lt 16 TAB    &lt 17 ENTER  &lt SEOTO_SHIFT SPACE             &mo 11  &kp LS(NUMBER_1)  &kp LS(RIGHT_ARROW)
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
