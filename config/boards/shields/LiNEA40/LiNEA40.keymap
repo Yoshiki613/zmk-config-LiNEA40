@@ -16,6 +16,8 @@
 #define SCROLL 5
 #define WIRELESS 6
 #define NAGINATA 7
+#define SEOTO 11
+#define SEOTO_SHIFT 12
 
 //mouse cursol
 
@@ -76,6 +78,42 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 0>;
+        };
+
+        seoto_nn: seoto_nn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp N &kp N>;
+        };
+
+        seoto_xtu: seoto_xtu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp X &kp T &kp U>;
+        };
+
+        seoto_k: seoto_k {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp K>;
+        };
+
+        seoto_ya: seoto_ya {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp Y &kp A>;
+        };
+
+        seoto_yu: seoto_yu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp Y &kp U>;
+        };
+
+        seoto_yo: seoto_yo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp Y &kp O>;
         };
     };
 
@@ -156,7 +194,7 @@
 &kp L         &kp W         &kp K      &kp R           &kp P                                  &kp ESC   &kp U            &kp O      &kp Y              &kp MINUS
 &kp H         &kp S         &kp T      &kp N           &kp M                                  &kp BSPC  &kp A            &kp E      &kp I              &kp COMMA
 &kp LEFT_WIN  &kp LEFT_ALT  &kp LCTRL  &kp LEFT_SHIFT  &kp SPACE                              &trans    &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT      &kp RIGHT_WIN
-&tog NAGINATA &trans        &trans     &kp INS         &lt 3 TAB  &lt 4 SPACE    &lt 5 ENTER  &mo 2                      &mo 6      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&tog NAGINATA &tog SEOTO    &trans     &kp INS         &lt 3 TAB  &lt 4 SPACE    &lt 5 ENTER  &mo 2                      &mo 6      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
@@ -244,6 +282,69 @@
 &ng A         &ng S         &ng D      &ng F           &ng G                                  &ng H     &ng J            &ng K      &ng L              &ng SEMI
 &ng Z         &ng X         &ng C      &ng V           &ng B                                  &ng N     &ng M            &ng COMMA  &ng DOT           &ng SLASH
 &tog 0        &trans        &trans     &trans          &ng SPACE  &ng ENTER    &kp BACKSPACE  &ng SPACE                  &trans     &kp LEFT_ARROW     &kp RIGHT_ARROW
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //8 — Number copy for NAGINATA
+
+        Number_NG {
+            bindings = <
+&kp MINUS  &kp EQUAL  &kp BSLH  &kp COLON  &kp SEMI                                       &kp DQT          &kp APOS  &trans  &kp LBKT  &kp RBKT
+&kp N1     &kp N2     &kp N3    &kp N4     &kp N5                                         &kp N6           &kp N7    &kp N8  &kp N9    &kp N0
+&trans     &trans     &trans    &trans     &trans                                         &trans           &trans    &trans  &trans    &trans
+&trans     &trans     &trans    &trans     &kp LEFT_SHIFT  &kp LEFT_WIN    &kp RIGHT_WIN  &kp RIGHT_SHIFT            &trans  &trans    &trans
+            >;
+        };
+
+        //9 — ShortCut copy for NAGINATA
+
+        ShortCut_NG {
+            bindings = <
+&kp LG(Q)  &kp LG(W)  &kp LG(E)  &kp LG(A)  &kp LG(S)                    &trans  &trans          &kp UP_ARROW    &trans           &trans
+&kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans                       &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&trans     &trans     &trans     &trans     &trans                       &trans  &trans          &trans          &trans           &trans
+&trans     &trans     &trans     &trans     &trans     &trans    &trans  &trans                  &trans          &trans           &trans
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //10 — Function copy for NAGINATA
+
+        Function_NG {
+            bindings = <
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5                     &trans  &kp F12  &kp LG(DOT)    &kp LS(LG(NUMBER_3))  &kp LS(LG(N5))
+&kp F6  &kp F7  &kp F8  &kp F9  &kp F10                    &trans  &kp F11  &kp LG(MINUS)  &kp LS(LG(NUMBER_4))  &kp LA(NUMBER_4)
+&trans  &trans  &trans  &trans  &trans                     &trans  &trans   &trans         &trans                &trans
+&trans  &trans  &trans  &trans  &trans   &trans    &trans  &trans           &trans         &trans                &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
+        };
+
+        //11 — せおと配列（ローマ字入力用。C=K, X=YA, J=YU, Q=YO をキーボード側で送出）
+
+        seoto_layer {
+            bindings = <
+&kp F   &kp Z         &kp H   &kp P   &kp LEFT_ARROW                           &kp RIGHT_ARROW  &seoto_yo &kp O       &kp W          &seoto_ya
+&kp D   &kp S         &kp N   &kp T   &kp G                                    &kp L            &kp A     &kp I      &kp U         &kp E
+&kp B   &kp R         &kp M   &seoto_k &kp K                                   &kp Y            &kp COMMA &seoto_yu  &kp DOT       &kp V
+&to 0   &kp LEFT_WIN  &trans  &trans  &lt SEOTO_SHIFT SPACE  &lt 9 TAB    &kp ENTER        &lt SEOTO_SHIFT SPACE        &mo 10     &kp LEFT_ARROW  &kp RIGHT_ARROW
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //12 — せおと配列 Space 長押し面（右上小文字の裏入力）
+
+        seoto_shift_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                                      &kp LANGUAGE_1  &kp LANGUAGE_2  &trans     &kp LS(GRAVE)  &trans
+&trans  &trans  &trans  &trans  &trans                                      &kp APOS &kp BSPC &seoto_nn &kp MINUS      &seoto_xtu
+&trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans     &trans         &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans                   &trans          &trans     &trans         &trans
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
