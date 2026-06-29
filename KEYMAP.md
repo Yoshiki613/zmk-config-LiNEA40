@@ -80,12 +80,12 @@
 | J位置 | `YU` |
 | Q位置 | `YO` |
 
-Space 長押し中は、せおと配列の右上に書かれている裏入力を送ります。
+Space 長押し中は、せおと配列の右上に書かれている裏入力を送ります。`LANGUAGE_1` / `LANGUAGE_2` はPC側の入力モードと、キーボード側のせおと面を同時に切り替えます。
 
 | Space + 位置 | 送出 |
 |--------------|------|
-| `L` の上 | `LANGUAGE_1` |
-| `A` の上 | `LANGUAGE_2` |
+| `L` の上 | `LANGUAGE_1` + SEOTO |
+| `A` の上 | `LANGUAGE_2` + SEOTO_EN |
 | W | `~` |
 | L | `'` |
 | A | Backspace |
@@ -113,6 +113,10 @@ Space 長押し中は、せおと配列の右上に書かれている裏入力�
 | 11 | Function_NG | L7用 Function 複製 |
 | 12 | SEOTO | レイヤー0の左下2つ目 / L12左下 |
 | 13 | SEOTO_SHIFT | L12 Space長押し |
+| 14 | SEOTO_EN | Space+LANG2で切替、C/Q/X/Jそのまま |
+| 15 | Number_NG_Copy | L9 Number_NG のコピー |
+| 16 | ShortCut_NG_Copy | L10 ShortCut_NG のコピー |
+| 17 | Function_NG_Copy | L11 Function_NG のコピー |
 
 ---
 

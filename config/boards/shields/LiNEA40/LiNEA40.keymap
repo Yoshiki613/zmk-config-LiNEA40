@@ -18,6 +18,7 @@
 #define NAGINATA 7
 #define SEOTO 11
 #define SEOTO_SHIFT 12
+#define SEOTO_EN 13
 
 //mouse cursol
 
@@ -114,6 +115,18 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp Y &kp O>;
+        };
+
+        seoto_lang1: seoto_lang1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LANGUAGE_1 &to SEOTO>;
+        };
+
+        seoto_lang2: seoto_lang2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LANGUAGE_2 &to SEOTO_EN>;
         };
     };
 
@@ -341,10 +354,73 @@
 
         seoto_shift_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                                      &kp LANGUAGE_1  &kp LANGUAGE_2  &trans     &kp LS(GRAVE)  &trans
+&trans  &trans  &trans  &trans  &trans                                      &seoto_lang1  &seoto_lang2  &trans     &kp LS(GRAVE)  &trans
 &trans  &trans  &trans  &trans  &trans                                      &kp APOS &kp BSPC &seoto_nn &kp MINUS      &seoto_xtu
 &trans  &trans  &trans  &trans  &trans                                      &trans  &trans  &trans     &trans         &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans                   &trans          &trans     &trans         &trans
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //13 — せおと配列 英字入力用（C/Q/X/J をそのまま送出）
+
+        seoto_en_layer {
+            bindings = <
+&kp F   &kp Z         &kp H   &kp P  &kp LEFT_ARROW                           &kp RIGHT_ARROW  &kp Q     &kp O       &kp W      &kp X
+&kp D   &kp S         &kp N   &kp T  &kp G                                    &kp L            &kp A     &kp I       &kp U      &kp E
+&kp B   &kp R         &kp M   &kp C  &kp K                                    &kp Y            &kp COMMA &kp J       &kp DOT    &kp V
+&to 0   &kp LEFT_WIN  &trans  &trans &lt SEOTO_SHIFT SPACE  &lt 9 TAB    &kp ENTER        &lt SEOTO_SHIFT SPACE        &mo 10     &kp LEFT_ARROW  &kp RIGHT_ARROW
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //14 — Reserved to keep copied layers at 15-17
+
+        Reserved_14 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans  &trans  &trans
+            >;
+        };
+
+        //15 — Layer 9 copy
+
+        Layer_9_Copy {
+            bindings = <
+&kp LG(Q)  &kp LG(W)  &kp LG(E)  &kp LG(A)  &kp LG(S)                    &trans  &trans          &kp UP_ARROW    &trans           &trans
+&kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans                       &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans
+&trans     &trans     &trans     &trans     &trans                       &trans  &trans          &trans          &trans           &trans
+&trans     &trans     &trans     &trans     &trans     &trans    &trans  &trans                  &trans          &trans           &trans
+            >;
+
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+        };
+
+        //16 — Layer 10 copy
+
+        Layer_10_Copy {
+            bindings = <
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5                     &trans  &kp F12  &kp LG(DOT)    &kp LS(LG(NUMBER_3))  &kp LS(LG(N5))
+&kp F6  &kp F7  &kp F8  &kp F9  &kp F10                    &trans  &kp F11  &kp LG(MINUS)  &kp LS(LG(NUMBER_4))  &kp LA(NUMBER_4)
+&trans  &trans  &trans  &trans  &trans                     &trans  &trans   &trans         &trans                &trans
+&trans  &trans  &trans  &trans  &trans   &trans    &trans  &trans           &trans         &trans                &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
+        };
+
+        //17 — Layer 11 copy
+
+        Layer_11_Copy {
+            bindings = <
+&kp F   &kp Z         &kp H   &kp P   &kp LEFT_ARROW                           &kp RIGHT_ARROW  &seoto_yo &kp O       &kp W          &seoto_ya
+&kp D   &kp S         &kp N   &kp T   &kp G                                    &kp L            &kp A     &kp I      &kp U         &kp E
+&kp B   &kp R         &kp M   &seoto_k &kp K                                   &kp Y            &kp COMMA &seoto_yu  &kp DOT       &kp V
+&to 0   &kp LEFT_WIN  &trans  &trans  &lt SEOTO_SHIFT SPACE  &lt 9 TAB    &kp ENTER        &lt SEOTO_SHIFT SPACE        &mo 10     &kp LEFT_ARROW  &kp RIGHT_ARROW
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;

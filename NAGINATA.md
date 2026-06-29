@@ -80,18 +80,30 @@ B R M C>K K    Y ,  YU . V
 | J | YU |
 | Q | YO |
 
-Space 長押し中は、右上に書かれている裏入力を送出します。
+Space 長押し中は、右上に書かれている裏入力を送出します。`LANGUAGE_1` / `LANGUAGE_2` はPC側の入力モードと、キーボード側のせおと面を同時に切り替えます。
 
 | Space + 位置 | 送出 |
 |--------------|------|
-| L の上 | LANGUAGE_1 |
-| A の上 | LANGUAGE_2 |
+| L の上 | LANGUAGE_1 + SEOTO |
+| A の上 | LANGUAGE_2 + SEOTO_EN |
 | W | ~ |
 | L | ' |
 | A | Backspace |
 | I | NN（ん） |
 | U | -（長音） |
 | E | XTU（っ） |
+
+英字入力用の `SEOTO_EN` では、ローマ字拡張を使わず `C/Q/X/J` をそのまま送出します。
+
+## レイヤー15〜17
+
+`config/LiNEA40.keymap` では、薙刀式用サブレイヤーのコピーを追加しています。
+
+| レイヤー | 内容 |
+|----------|------|
+| 15 | L9 Number_NG のコピー |
+| 16 | L10 ShortCut_NG のコピー |
+| 17 | L11 Function_NG のコピー |
 
 ## ビルド
 
